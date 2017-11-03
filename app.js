@@ -2,36 +2,36 @@
 var cipher = function(array) {
 // Almacenaremos el codigo Ascii de cada letra en numAscii con la funcion push() y charCodeAt()
   var numAscii = [];
-  for (var e = 0;e < array [0].length;e++) {
+for (var e = 0;e < array [0].length;e++) {
     numAscii.push(array[0].charCodeAt(e));
   }
- // aplicaremos la formula del cifrado de Cesar
+  // aplicaremos la formula del cifrado de Cesar
   var change = [];
-  for (var i=0; i<numAscii.length;i++) {
-    if (numAscii[i]<=90) {
-      change.push((numAscii[i]-65+33)%26+65); // MAYUSCULAS
+  for (var i = 0; i < numAscii.length;i++) {
+    if (numAscii[i] <= 90) {
+      change.push((numAscii[i] - 65 + 33) % 26 + 65); // MAYUSCULAS
     } else {
-     change.push((numAscii[i]-97+33)%26+97);// minúsculas
+      change.push((numAscii[i] - 97 + 33) % 26 + 97);// minúsculas
     }
   }
-//Convertiremos los nuevos numeros Ascii en letras con String.fromCharCode()
-//Luego las juntamos con join("")
-  var cipherDone=[];
-    for (var a=0;a<change.length;a++) {
-      cipherDone.push(String.fromCharCode(change[a]));
-      var newCipher=[cipherDone.join("")];
-    }
-    return newCipher;
+  // Convertiremos los nuevos numeros Ascii en letras con String.fromCharCode()
+  // Luego las juntamos con join("")
+  var cipherDone = [];
+for (var a = 0;a < change.length;a++) {
+    cipherDone.push(String.fromCharCode(change[a]));
+var newCipher = [ cipherDone.join("" ) ];
+  }
+  return newCipher;
 };
-//decipher() es una funcion que descifra el array dado
-var decipher=function(array) {
-//Convertimos las letras en números Ascii con push() y charCodeAt()
-  var nums=[];
-  for (var i=0;i<array[0].length;i++) {
+// decipher() es una funcion que descifra el array dado
+var decipher = function(array) {
+// Convertimos las letras en números Ascii con push() y charCodeAt()
+  var nums = [];
+  for (var i = 0;i < array [0].length;i++) {
     nums.push(array[0].charCodeAt(i));
   }
-//Aplicamos la formula esta vez revertida
-//Lo almacenamos en la variable change
+  // Aplicamos la formula esta vez revertida
+ // Lo almacenamos en la variable change
   var change=[];
   for (var u=0; u<nums.length;u++) {
     if (nums[u]<=90) {
