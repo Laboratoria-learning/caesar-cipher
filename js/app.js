@@ -1,5 +1,5 @@
 // declarando e inicializando variables
-//var sentence='abcdeABCDE';
+
 var option='';
 var validateOption=false;
 var validateSentence=false;
@@ -42,7 +42,7 @@ do {
      }
 } while (validateSentence === false);
 
-// comprobando si las validaciones de opción y frase ejecutar funciones cifrar o cifrado
+// comprobando si las validaciones de opción y frase son true para ejecutar funciones cifrar o cifrado
 
 if (validateOption ===true & validateSentence === true ){
    if( option.charCodeAt(0)===49 ){
@@ -58,12 +58,12 @@ if (validateOption ===true & validateSentence === true ){
 function cipher (sentence,parameter){
   console.log(sentence);
   for (var i=0; i< sentence.length ; i++){
-      asci= sentence.charCodeAt(i); //asigna valor asci de caracter posicion i
+      asci= sentence.charCodeAt(i); //asigna valor asci de caracter posición i
 
-      if ( asci >= 65 & asci <=90){     // para  mayusculas
+      if ( asci >= 65 & asci <=90){     // para  mayúsculas
           temp1=(sentence.charCodeAt(i) - 65 + parameter )%26 +65;
 
-      }else { (asci >= 97 & asci <=122) // para minisculas
+      }else { (asci >= 97 & asci <=122) // para minúsculas
           temp1=(sentence.charCodeAt(i) - 97 + parameter )%26 +97;
       }
 
@@ -78,12 +78,12 @@ function decipher (sentence,parameter){
   stringCipher=0;
 
   for (var i=0; i< sentence.length ; i++){
-      asci= sentence.charCodeAt(i); //asigna valor asci de caracter posicion i
+      asci= sentence.charCodeAt(i); //asigna valor asci de caracter posición i
 
-      if ( asci >= 65 & asci <=90){     // para  mayusculas
+      if ( asci >= 65 & asci <=90){     // para  mayúsculas
          temp1=(sentence.charCodeAt(i) - 7  );
 
-      }else { (asci >= 97 & asci <=122) // para minisculas
+      }else { (asci >= 97 & asci <=122) // para minúsculas
          temp1=(sentence.charCodeAt(i) - 7  )
       }
       stringDecipher+=(String.fromCharCode(temp1)); //acumula caracteres
