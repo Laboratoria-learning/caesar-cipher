@@ -11,7 +11,7 @@ Por ejemplo:
 
 - Texto original:   `ABCDEFGHIJKLMNOPQRSTUVWXYZ`
 - Texto codificado: `HIJKLMNOPQRSTUVWXYZABCDEFG`
-  
+
 ## Entregables
 
 Para cada producto debes entregar **un repositorio de GitHub** que
@@ -29,7 +29,7 @@ resolver este reto. ¡Escúchala con detenimiento y sigue sus consejos! :)
 
 [![tips caesar cipher](https://img.youtube.com/vi/zd8eVrXhs7Y/0.jpg)](https://www.youtube.com/watch?v=zd8eVrXhs7Y)
 
-También te compartimos más información de lo que Michelle te ha explicado 
+También te compartimos más información de lo que Michelle te ha explicado
 en el video anterior:
 
 - [Aprende más sobre `charCodeAt()`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/charCodeAt)
@@ -38,9 +38,9 @@ en el video anterior:
 
 ## Consideraciones específicas
 
-1. Tu programa debe ser capaz de cifrar y descifrar tanto letras 
+1. Tu programa debe ser capaz de cifrar y descifrar tanto letras
    mayúsculas como minúsculas. La fórmula para descifrar es: `(x - n) % 26`
-2. Tu código debe estar compuesto por 2 funciones con los siguientes 
+2. Tu código debe estar compuesto por 2 funciones con los siguientes
    nombres: `cipher` y `decipher`
 3. El usuario no debe poder ingresar un campo vacío o que contenga números
 
@@ -55,3 +55,19 @@ Se tomarán en cuenta las siguientes consideraciones a la hora de evaluar tu sol
 5. Archivo `README.md` correctamente redactado
 6. Uso de comentarios para hacer tu código más legible
 7. Que el programa cumpla con el propósito requerido
+
+## Pseudocódigo
+
+1. Inicio  
+2. Introducir una palabra   
+3. Evalua si la palabra es un string
+4. Inicia el recorrido en cada letra de la palabra  
+5. En la variable code convierte cada letra al codigo ascii  
+6. Se procede a analizar si el codigo esta dentro del rango de letras mayusculas o minusculas y se ejecuta los 33 espacios solicitados    
+7. Convierte del codigo ascii a letra   
+8. Devuelve la palabra encriptada en la variable output
+9. Fin
+
+## Diagrama de flujo
+
+![recursos](assets/docs/cifrado_cesar.JPG)
