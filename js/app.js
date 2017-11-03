@@ -1,32 +1,43 @@
-var words= prompt("ingrese texto");
+var words = prompt('ingrese texto') ;
 
-convertNumbers=parseInt(words);
+convertNumbers = parseInt(words) ;
 
-console.log(convertNumbers);
+console.log(convertNumbers) ;
 
-  if(!isNaN(convertNumbers) || words === ""){
-      alert("error");
-  }else{
-    var noIsNumber= words;
+
+  if ( !isNaN(convertNumbers) || words === '' ) {
+
+      alert('error');
+
+  }
+
+  else {
+
+      var noIsNumber = words ;
+
   }
 
 
- var cipher= function(wordX){
-      var a=wordX.toUpperCase();
-      var arr= a;
+  var cipher = function(wordX) {
+
+      var wordUppercase = wordX.toUpperCase();
+
+      var arr = wordUppercase ;
 
 
+   for (var i=0 ; i<arr.length ; i++) {
 
-   for(var i=0;i<arr.length;i++){
-     var b= arr.charCodeAt(i) ;
+     var  arrCharcodeAt = arr.charCodeAt(i) ;
 
+     var arrCaesarCipher = ( arrCharcodeAt-65+33 ) % 26 + 65 ;
 
-     var c=(b-65+33)%26+65;
-     var d= String.fromCharCode(c);
+     var newStringCode = String.fromCharCode(arrCaesarCipher) ;
 
    }
 
-   return d;
+   return newStringCode ;
+
  }
- document.write(cipher(noIsNumber));
- 
+
+
+ document.write( cipher(noIsNumber) );
