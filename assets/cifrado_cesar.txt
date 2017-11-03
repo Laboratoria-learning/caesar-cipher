@@ -1,0 +1,16 @@
+usuario ingresa datos
+lee datos
+procedimiento cipher
+     para (var i=0; i<word.length;i++)
+	   Si datos es igual a string y no está vacío
+		convertir a mayúsculas
+		ubicar valor ASCCI
+		Aplicar cifrado Cesar
+		Almacenar en array
+    	   fin para
+    procedimiento decipher
+     para (var i =0; i<word2.length;i++)
+		ubicar valor ASCCI
+		Aplicar cifrado Cesar
+		Almacenar en array
+    	   fin para
