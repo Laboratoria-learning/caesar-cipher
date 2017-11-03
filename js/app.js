@@ -17,7 +17,7 @@ function cipher(){
     array.push(newLetter); //almacenamos la letra cifrada en el array
   }
 
-  return array.join(''); //retornamos el array como un string
+  alert(array.join('')); //retornamos el array como un string
 }
 
 
@@ -40,7 +40,7 @@ function decipher(){
     secArray.push(newString); //almacenamos la letra decifrada en el secArray
   }
 
-  return secArray.join(''); //retornamos el secArray como un string
+  alert(secArray.join('')); //retornamos el secArray como un string
 
 }
 
