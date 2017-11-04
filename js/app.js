@@ -38,7 +38,7 @@ var cipher = function(){
 
 var decipher = function(){
     var cadena = document.getElementById("entrada").value; //Obtener el valor de lo que ingresa el usuario input type=text
-    console.log(cadena);
+
     var alerta = "";
 	if(cadena.length === 0) {
 		alerta = alert('Error. el campo esta vacio');
