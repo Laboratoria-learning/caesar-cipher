@@ -24,7 +24,7 @@ function cipher(msg, x) {
     }
   }
   // Retornando mensaje cifrado
-  return alert(msg);
+  return alert('Mensaje cifrado:\n' + msg);
 }
 
 // Creando función para descrifrar
@@ -61,7 +61,7 @@ function decipher(msg, x) {
     // Cambiando el caracter cifrado por el descifrado
   }
   // Retornando mensaje descifrado
-  return alert(msg);
+  return alert('Mensaje descifrado:\n' + msg);
 }
 
 // Menú de opciones para cifrar o descifrar mensajes
