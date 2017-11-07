@@ -1,5 +1,4 @@
 var resultado = document.getElementById("resultado"); // variable resultado es el lugar donde mi elemento que se encuentra en mi html donde me mostrara el resultado el valor unicode 
-
 var cipher = function(){
     var cadena = document.getElementById("entrada").value; //Obtener el valor de lo que ingresa el usuario input type=text
     
@@ -11,13 +10,10 @@ var cipher = function(){
 		alerta = alert('Error. el campo solo acepta texto');
 		return alerta; 
 	}
-    
     console.log(cipher);
-   
+    
     var caracteres = []; //creamos un array 
     var caracteresCipher =[];
-      
- 
   	    for ( var i = 0; i < cadena.length; i++){ //Recorrer la cadena que es el texto ingresado por el usuario
             caracteres[i] = cadena.charAt(i).charCodeAt(0); // El array caracteres almacenara los caracteres especificado de una cadena 
             //junto con el método charCodeAt la cual devuelve un número indicando el valor Unicode del carácter en el índice proporcionado.
@@ -26,8 +22,6 @@ var cipher = function(){
             
             var cipherNumber = (caracteres[n]  - 65 + 33) % 26 + 65;
             caracteresCipher.push(String.fromCharCode(cipherNumber));//// El array caracteres almacenara los caracteres con el método devuelve una cadena creada mediante el uso de una secuencia de valores Unicode especificada.
-           
-
            console.log(cipherNumber);
         }
 
