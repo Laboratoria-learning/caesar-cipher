@@ -1,0 +1,30 @@
+body {
+    font-family: Georgia, "Times New Roman",
+    Times, serif;
+    color: black;
+    background-color: #33FFF6;
+    padding: 40px;
+}
+h1 {
+    font-family: Helvetica, Geneva, Arial,
+    SunSans-Regular, sans-serif;
+    margin-left:360px;
+    padding: 30px;
+}
+p{
+    font-family: Helvetica, Geneva, Arial,
+    SunSans-Regular, sans-serif;
+    font-size:20px;
+    text-align: justify;
+}
+.i1{
+    
+    padding: 40px;
+   position:absolute;
+}
+.i2{
+    margin-left: 650px;
+    padding: 40px;
+    margin-bottom: 40px;
+    position: relative;
+}
