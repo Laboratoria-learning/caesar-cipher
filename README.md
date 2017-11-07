@@ -1,57 +1,46 @@
-# Cifrado César
+# Funcion cipher()
 
-> Recuerda seguir siempre esta [guía de estilos](https://github.com/Laboratoria/js-style-guide/)
+1. Crear una funcion llamada cipher que cifre el texto ingresado  : **function cipher()**
 
-Crea una web que pida, por medio de un `prompt()`, una frase al usuario y
-devuelva el mismo mensaje encriptado según el
-[algoritmo de Cifrado César](https://en.wikipedia.org/wiki/Caesar_cipher)
-con el parámetro de desplazamiento de **33 espacios hacia la derecha**
+2. Creamos una variable texto por medio del cual el usuario con un prompt ingresa la palabra a cifrar :
+  **var texto=prompt("Ingrese un texto");**
 
-Por ejemplo:
+3. Creamos una variable cifrado que contenga las letras del texto a cifrar : **var cifrado ="";**
 
-- Texto original:   `ABCDEFGHIJKLMNOPQRSTUVWXYZ`
-- Texto codificado: `HIJKLMNOPQRSTUVWXYZABCDEFG`
-  
-## Entregables
+    3.1 **for(var i=0; i<texto.length; i++)** *//el for recorrera las letras del texto a cifrar//*
 
-Para cada producto debes entregar **un repositorio de GitHub** que
-contenga:
-1. Archivo `README.md` que explique el **pseudocódigo** de tu solución y su
-**diagrama de flujo**
-2. Archivo `app.js` con el **código** de tu solución
-3. Archivo `index.html` vinculado con tu `app.js`
+    3.2 **if (parseInt(texto[i])%1 === 0)** *//condicionar para no ingresar numeros//
+      texto = prompt("Por favor ingrese un texto sin numeros ni espacios");*
 
-## Tips
+    3.3 aplicar formula para cifrar:
+      **var ubicacionCesar=(texto.toUpperCase().charCodeAt(i) - 65 + 33) % 26 + 65;
 
-A continuación un video de Michelle que te lleva a través de la fórmula
-matemática del Cifrado César y un par de cosas más que debes saber para
-resolver este reto. ¡Escúchala con detenimiento y sigue sus consejos! :)
+      var palabraCifrada= String.fromCharCode(ubicacionCesar);**
 
-[![tips caesar cipher](https://img.youtube.com/vi/zd8eVrXhs7Y/0.jpg)](https://www.youtube.com/watch?v=zd8eVrXhs7Y)
+    3.4 acumular las letras cifradas
+        **cifrado+= palabraCifrada;**
 
-También te compartimos más información de lo que Michelle te ha explicado 
-en el video anterior:
+4. Retornar el texto cifrado : **return cifrado;**
 
-- [Aprende más sobre `charCodeAt()`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/charCodeAt)
-- [Aprende más sobre `String.fromCharCode()`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/fromCharCode)
-- [Aprende más sobre `ASCII`](http://conceptodefinicion.de/ascii/)
+# Funcion decipher()
 
-## Consideraciones específicas
+5. Crear una funcion llamada decipher que descifre el texto ingresado inicialmente: **function decipher(cifrado)**
 
-1. Tu programa debe ser capaz de cifrar y descifrar tanto letras 
-   mayúsculas como minúsculas. La fórmula para descifrar es: `(x - n) % 26`
-2. Tu código debe estar compuesto por 2 funciones con los siguientes 
-   nombres: `cipher` y `decipher`
-3. El usuario no debe poder ingresar un campo vacío o que contenga números
+    5.1. creamos una alerta como la palabra cifrada inicialmente como referencia : **alert ("Palabra Cifrada: " + cifrado);**
 
-## Criterios de evaluación
+6. Se crea una variable llamada descifrar que contenga las letras del texto a cifrar: **var descifrado ="";**
 
-Se tomarán en cuenta las siguientes consideraciones a la hora de evaluar tu solución:
+    6.1 **for(var j=0; j<cifrado.length; j++)** *//el for recorrera las letras del texto a descifrar//*
 
-1. Nombramiento de variables
-2. Indentación
-3. Validación de input: el usuario no debe poder ingresar un campo vacío o de tipo que no corresponda
-4. Estructura de tus archivos
-5. Archivo `README.md` correctamente redactado
-6. Uso de comentarios para hacer tu código más legible
-7. Que el programa cumpla con el propósito requerido
+    6.2. Aplicamos las formulas para descifrar el texto:
+         **var ubicacionDescifrado = (cifrado.charCodeAt(j) + 65 - 33) % 26 + 65;
+           var palabraDescifrada= String.fromCharCode(ubicacionDescifrado);**
+    6.3 Acumular las letras descifradas:
+         **descifrado+=palabraDescifrada;** *//acumular las letras descifradas//*
+7. Retornar el texto descifrado: **return descifrado;**
+
+8. Llamas a la funcion: **decipher(cipher());**
+
+*Nota: en el siguiente enlace se encuentra el link del flujograma.*
+
+https://subefotos.com/ver/?899826d7aef7ed6b989a1d12bb18ca00o.png#codigos
