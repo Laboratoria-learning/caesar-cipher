@@ -1,57 +1,48 @@
-# Cifrado César
+# Ceasar Cipher method
+#  **coded in JavaScript**
 
-> Recuerda seguir siempre esta [guía de estilos](https://github.com/Laboratoria/js-style-guide/)
+### This document is intend to show the regular user how the ceasar cipher method works on JavaScript
 
-Crea una web que pida, por medio de un `prompt()`, una frase al usuario y
-devuelva el mismo mensaje encriptado según el
-[algoritmo de Cifrado César](https://en.wikipedia.org/wiki/Caesar_cipher)
-con el parámetro de desplazamiento de **33 espacios hacia la derecha**
+### We ask the user to enter a phrase (It could be a single word or a sentence with spaces). The user isn't going to be able to introduce a number as a character or to leave the answer window blank.
 
-Por ejemplo:
+### After this the program is going to assign each character its ASCII number, then is going to assign the character its number in the decimal count (1-26). Finally is going to return the new letter in a new string.
 
-- Texto original:   `ABCDEFGHIJKLMNOPQRSTUVWXYZ`
-- Texto codificado: `HIJKLMNOPQRSTUVWXYZABCDEFG`
-  
-## Entregables
+### This new string contains the phrase (or word) changed by the ceasar cipher method used.
 
-Para cada producto debes entregar **un repositorio de GitHub** que
-contenga:
-1. Archivo `README.md` que explique el **pseudocódigo** de tu solución y su
-**diagrama de flujo**
-2. Archivo `app.js` con el **código** de tu solución
-3. Archivo `index.html` vinculado con tu `app.js`
+### Now, we are going to show you the **_pseudocode_** and the **_flowchart_** associated to this code.
 
-## Tips
+>PSEUDOCODE
 
-A continuación un video de Michelle que te lleva a través de la fórmula
-matemática del Cifrado César y un par de cosas más que debes saber para
-resolver este reto. ¡Escúchala con detenimiento y sigue sus consejos! :)
+>#### Proceso ceasarCipher
+>####	Hacer con un prompt "Introduzca frase a cifrar";
+>####	Mientras frase = '' (campo vacio)
+>####    Seguir haciendo prompt "Introduzca frase a cifrar";
+>####	Leer frase;
+>####	inquiry <- HOLA COMO ESTAS;
+>####    Si inquiry contiene numeros
+>####    Entonces seguir con prompt "Introduzca frase a cifrar sin numeros";
+>####    phrase=inquiry.toUpperCase (Guardamos el inquiry convertido a mayusculas en una nueva variable)
+>####	emptyString <- '' (declaramos un string vacio);
+>####	recorriendo phrase;
+>####	Si posicion en phrase <- ' ' (espacio en blanco entre palabras de la frase)
+>####    Entonces emptyString+=' ' (se escribe el espacio en blanco en el string vacio;		
+>####	SiNo emptyString = formula de ceasarCipher (se le aplica la formula del codigo cesar a los caracteres);	
+>####	Retornamos la frase ya cifrada contenida en emptyString
+>####    Devolvemos mediante un alert "Tu frase cifrada es" + emptyString
 
-[![tips caesar cipher](https://img.youtube.com/vi/zd8eVrXhs7Y/0.jpg)](https://www.youtube.com/watch?v=zd8eVrXhs7Y)
+#### **Inmediatamente creamos la funcion decipher**
+>#### Proceso ceasarDecipher
+>####    Declaramos un string vacio;
+>####    str2=" ";
+>####    recorremos el str del cipher
+>####    Si str[k]=" " (Si encuentra espacios en blanco debe pasarlos igual al str2)
+>####    SiNo str2 <- aplicamos la formula de descifrado a cada elemento del strinf str
+>####    Devolvemos escrito en la pagina web la palabra descifrada
+>#### FinProceso
 
-También te compartimos más información de lo que Michelle te ha explicado 
-en el video anterior:
 
-- [Aprende más sobre `charCodeAt()`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/charCodeAt)
-- [Aprende más sobre `String.fromCharCode()`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/fromCharCode)
-- [Aprende más sobre `ASCII`](http://conceptodefinicion.de/ascii/)
+>FLOWCHART
 
-## Consideraciones específicas
+![Con titulo](assets/docs/ceasarCipher_diagramaDeFlujo2.JPG "Ceasar´s Flowchart")
 
-1. Tu programa debe ser capaz de cifrar y descifrar tanto letras 
-   mayúsculas como minúsculas. La fórmula para descifrar es: `(x - n) % 26`
-2. Tu código debe estar compuesto por 2 funciones con los siguientes 
-   nombres: `cipher` y `decipher`
-3. El usuario no debe poder ingresar un campo vacío o que contenga números
 
-## Criterios de evaluación
-
-Se tomarán en cuenta las siguientes consideraciones a la hora de evaluar tu solución:
-
-1. Nombramiento de variables
-2. Indentación
-3. Validación de input: el usuario no debe poder ingresar un campo vacío o de tipo que no corresponda
-4. Estructura de tus archivos
-5. Archivo `README.md` correctamente redactado
-6. Uso de comentarios para hacer tu código más legible
-7. Que el programa cumpla con el propósito requerido
