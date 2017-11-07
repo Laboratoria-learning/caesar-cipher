@@ -31,11 +31,11 @@ function decipher(phrase) {
 var order = (prompt('Ingrese una frase: ')).toUpperCase();
 
 // Condicional para que no puedan dejar el prompt vacio:
-if (order != '') {
+if (order !== '') {
   // Bucle que recorra la variable order:
   for (var j = 0; j < order.length; j++) {
     // Condicional para que no ingresen campos vacios:
-    if (order[j] == ' ') {
+    if (order[j] === ' ') {
       spaces = true;
       break; // Para que cuando spaces sea true, salga del bucle.
     } else {
@@ -44,13 +44,13 @@ if (order != '') {
   }
 
   // Mensaje si ha ingresado espacios:
-  if (spaces == true) {
+  if (spaces === true) {
     alert('No ingrese campos en blanco');
   } else {
     // Bucle que recorra la variable order:
-    for (var k = 0; k < order.length; k++) {
+    for (var re = 0; re < order.length; re++) {
       // Condicional para que no se pueda ingresar numeros:
-      if (order.charCodeAt(k) >= 65 && order.charCodeAt(k) <= 90) {
+      if (order.charCodeAt(re) >= 65 && order.charCodeAt(re) <= 90) {
         var value = true;
       } else {
         var value = false;
@@ -59,14 +59,14 @@ if (order != '') {
     }
 
     // Condicional si ha ingresado solo letras sin numeros:
-    if (value == true) {
+    if (value === true) {
       // Llamamos a las funciones:
       document.write('CIFRADO   ->    ' + cipher(order));
       document.write('<p> DESCIFRADO   ->    ' + decipher(cipher(order)));
     }
 
     // Mensaje si ha ingresado numeros:
-    if (value == false) {
+    if (value === false) {
       alert('Ingrese solo letras');
     }
   }
