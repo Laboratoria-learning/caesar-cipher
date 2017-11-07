@@ -1,57 +1,84 @@
-# Cifrado César
+# **Cifrado Cesar**
 
-> Recuerda seguir siempre esta [guía de estilos](https://github.com/Laboratoria/js-style-guide/)
+## Objetivo
 
-Crea una web que pida, por medio de un `prompt()`, una frase al usuario y
-devuelva el mismo mensaje encriptado según el
-[algoritmo de Cifrado César](https://en.wikipedia.org/wiki/Caesar_cipher)
-con el parámetro de desplazamiento de **33 espacios hacia la derecha**
+Realizar el cifrado y descifrado de una *palabra* por medio de este programa.
 
-Por ejemplo:
+Utilizamos el **Algoritmo de Cesar** para que letra por letra se pueda cifrar el parametro ingresado.
 
-- Texto original:   `ABCDEFGHIJKLMNOPQRSTUVWXYZ`
-- Texto codificado: `HIJKLMNOPQRSTUVWXYZABCDEFG`
-  
-## Entregables
++ Texto original: ABCDEFGHIJKLMNOPQRSTUVWXYZ
 
-Para cada producto debes entregar **un repositorio de GitHub** que
-contenga:
-1. Archivo `README.md` que explique el **pseudocódigo** de tu solución y su
-**diagrama de flujo**
-2. Archivo `app.js` con el **código** de tu solución
-3. Archivo `index.html` vinculado con tu `app.js`
++ Texto codificado: HIJKLMNOPQRSTUVWXYZABCDEFG
+_________________________________________________
 
-## Tips
+### *PseudoCodigo:*
 
-A continuación un video de Michelle que te lleva a través de la fórmula
-matemática del Cifrado César y un par de cosas más que debes saber para
-resolver este reto. ¡Escúchala con detenimiento y sigue sus consejos! :)
+~~~ 
+Algoritmo Cifrado de César
 
-[![tips caesar cipher](https://img.youtube.com/vi/zd8eVrXhs7Y/0.jpg)](https://www.youtube.com/watch?v=zd8eVrXhs7Y)
+INICIO
 
-También te compartimos más información de lo que Michelle te ha explicado 
-en el video anterior:
+Función cipher(message)
+    newString <- message.toUpperCase()
+Para (j = 0; j < newString.length; j++)
+Si newString[j] >= 65 y newString <= 90 Entonces
+positionAlphabetAscii <- newString[j].charCodeAt()
+newPositionEncript <- aplicamos formula de cifrado de cesar a positionAlphabetAscii
+encriptWord += newPositionEncript
+~~~
 
-- [Aprende más sobre `charCodeAt()`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/charCodeAt)
-- [Aprende más sobre `String.fromCharCode()`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/fromCharCode)
-- [Aprende más sobre `ASCII`](http://conceptodefinicion.de/ascii/)
+~~~
+Si no Entonces
+encriptWord <- alert('Solo se aceptan letras. Intentalo  nuevamente!')
+Fin Si
+Fin Para
 
-## Consideraciones específicas
+Retornar encriptWord
 
-1. Tu programa debe ser capaz de cifrar y descifrar tanto letras 
-   mayúsculas como minúsculas. La fórmula para descifrar es: `(x - n) % 26`
-2. Tu código debe estar compuesto por 2 funciones con los siguientes 
-   nombres: `cipher` y `decipher`
-3. El usuario no debe poder ingresar un campo vacío o que contenga números
+Fin Función
+~~~
 
-## Criterios de evaluación
+~~~
+Función decipher(message)
+newString <- message.toUpperCase()
+Para (j = 0; j < newString.length; j++)
+Si newString[j] >= 65 y newString <= 90 Entonces
+positionAlphabetAscii <- newString[j].charCodeAt()
+newPositionEncript <- aplicamos formula de decifrado de cesar a positionAlphabetAscii
+encriptWord += newPositionEncript
+~~~
 
-Se tomarán en cuenta las siguientes consideraciones a la hora de evaluar tu solución:
+~~~
+Si no Entonces
+encriptWord <- alert('Solo se aceptan letras. Intentalo  nuevamente!')
+Fin Si
+Fin Para
 
-1. Nombramiento de variables
-2. Indentación
-3. Validación de input: el usuario no debe poder ingresar un campo vacío o de tipo que no corresponda
-4. Estructura de tus archivos
-5. Archivo `README.md` correctamente redactado
-6. Uso de comentarios para hacer tu código más legible
-7. Que el programa cumpla con el propósito requerido
+Retornar encriptWord
+
+Fin Función
+~~~
+
+~~~
+Hacer message <- prompt('Ingrese una palabra')
+Si message === null
+alert('Regresa pronto :) ')
+Si no si message.length === 0 Entonces
+alert('Tu mensaje esta vacio intentalo nuevamente')
+Si  no menuOpc = '1.-Cifrar\n' + '2.-Decifrar' Entonces
+opc <- prompt(menuOpc, 'Elige una opción:')
+Si opc === '1' Entonces
+Llamar Función cipher
+Si no si opc === '2' Entonces
+Llamar Función decipher
+Si no Entonces
+alert('Intentalo nuevamente')
+
+Fin Si
+Repetir Mientras (!message)
+Fin
+~~~
+_________________________________________________
+#### Diagrama de Flujo:
+
+![recursos](https://github.com/NishiAicchi/WonderTeam-CifradoCesar/blob/master/assets/docs/recursos.jpg)
