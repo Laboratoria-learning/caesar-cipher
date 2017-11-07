@@ -1,57 +1,65 @@
-# Cifrado César
+# **CIFRADO CESAR**
+## Introducción
+El siguiente programa te ayuda a cifra un mensaje para que con otros que conoscan de el programan puedan entender tu mensaje cifrado por medio del descifrado que te permite descifrar el mensaje.
 
-> Recuerda seguir siempre esta [guía de estilos](https://github.com/Laboratoria/js-style-guide/)
+### Pseudocodigo
 
-Crea una web que pida, por medio de un `prompt()`, una frase al usuario y
-devuelva el mismo mensaje encriptado según el
-[algoritmo de Cifrado César](https://en.wikipedia.org/wiki/Caesar_cipher)
-con el parámetro de desplazamiento de **33 espacios hacia la derecha**
 
-Por ejemplo:
+##### Algoritmo Cipher
 
-- Texto original:   `ABCDEFGHIJKLMNOPQRSTUVWXYZ`
-- Texto codificado: `HIJKLMNOPQRSTUVWXYZABCDEFG`
-  
-## Entregables
+	Definir num,output,input1,j,k Como Entero
+	Definir input Como Caracter
+	Escribir 'Ingrese una frase:'
+	Leer input
+	Mientras (input=='') Hacer
+		Escribir 'Ingrese una frase:'
+		Leer input
+		Para j<-0 Hasta Longitud(input)Hacer
+			Mientras input[j]=== num Hacer
+				Escribir 'Ingrese una frase sin n�meros:'
+			FinMientras
+			Leer output
+		FinPara
+	FinMientras
+	Leer output
+	input1 <-  Mayusculas[input]
+	Para k <-0 Hasta Longitud(input1) Hacer
+		Si  input1[k] === ' '
+			Entonces output = ' '
+		SiNo
+			Entonces output = String.fromCharCode((input1.charCodeAt(k) - 65 + 33) % 26 + 65)
+		Fin Si Entonces
+	FinPara
+	Mostrar en pantalla output
+  FinAlgoritmo
 
-Para cada producto debes entregar **un repositorio de GitHub** que
-contenga:
-1. Archivo `README.md` que explique el **pseudocódigo** de tu solución y su
-**diagrama de flujo**
-2. Archivo `app.js` con el **código** de tu solución
-3. Archivo `index.html` vinculado con tu `app.js`
+##### Diagrama de flujo
+<https://ibb.co/kr3ZwG>
 
-## Tips
+##### Ejemplo:
+<https://ibb.co/hp7zVb>
 
-A continuación un video de Michelle que te lleva a través de la fórmula
-matemática del Cifrado César y un par de cosas más que debes saber para
-resolver este reto. ¡Escúchala con detenimiento y sigue sus consejos! :)
+##### Algoritmo Decipher
 
-[![tips caesar cipher](https://img.youtube.com/vi/zd8eVrXhs7Y/0.jpg)](https://www.youtube.com/watch?v=zd8eVrXhs7Y)
+	Definir output1,i Como Entero
+	Definir input2 Como Caracter
+	Escribir 'Ingrese la frase que desea decifrar'
+	Leer input2
+	Para i<-0 Hasta Longitud(input2)Hacer
+		Si input2[i] === ' '
+		Entonces output1 = ' '
+		Si No
+		Entonces output1 += String.fromCharCode((input2.charCodeAt(i) - 65 + 19) % 26 + 65)
+		Fin Si Entonces
+	FinPara
+	Mostrar en pantalla output1
+  FinAlgoritmo
 
-También te compartimos más información de lo que Michelle te ha explicado 
-en el video anterior:
+##### Diagra de flujo
+<https://ibb.co/mYFa3w>
 
-- [Aprende más sobre `charCodeAt()`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/charCodeAt)
-- [Aprende más sobre `String.fromCharCode()`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/fromCharCode)
-- [Aprende más sobre `ASCII`](http://conceptodefinicion.de/ascii/)
+##### Ejemplo:
+<https://ibb.co/fnSzVb>
 
-## Consideraciones específicas
-
-1. Tu programa debe ser capaz de cifrar y descifrar tanto letras 
-   mayúsculas como minúsculas. La fórmula para descifrar es: `(x - n) % 26`
-2. Tu código debe estar compuesto por 2 funciones con los siguientes 
-   nombres: `cipher` y `decipher`
-3. El usuario no debe poder ingresar un campo vacío o que contenga números
-
-## Criterios de evaluación
-
-Se tomarán en cuenta las siguientes consideraciones a la hora de evaluar tu solución:
-
-1. Nombramiento de variables
-2. Indentación
-3. Validación de input: el usuario no debe poder ingresar un campo vacío o de tipo que no corresponda
-4. Estructura de tus archivos
-5. Archivo `README.md` correctamente redactado
-6. Uso de comentarios para hacer tu código más legible
-7. Que el programa cumpla con el propósito requerido
+web site : <file:///C:/Users/Jessica%20Manturano/Desktop/Jessica/Cifradocesar/index.html>
+E- mail : <jessica95.mp@gmail.com>
