@@ -12,26 +12,26 @@ function cipher(str) {
       var ciphering = (index1[j] - 65 + 33) % 26 + 65;
       indexAscii.push(ciphering);
     }
-    for (var k = 0; k < indexAscii.length; k++) {
-      var alphabetLetters1 = String.fromCharCode(indexAscii[k]);
+    for (var num = 0; num < indexAscii.length; num++) {
+      var alphabetLetters1 = String.fromCharCode(indexAscii[num]);
       letters1.push(alphabetLetters1);
     }
   }
 
   if (str === str.toLowerCase()) {
-    for (var l = 0; l < str.length; l++) {
-      index1.push(str.charCodeAt(l));
+    for (var num1 = 0; num1 < str.length; num1++) {
+      index1.push(str.charCodeAt(num1));
     }
 
 
-    for (var m = 0; m < index1.length; m++) {
-      var ciphering2 = (index1[m] - 97 + 33) % 26 + 97;
+    for (var num2 = 0; num2 < index1.length; num2++) {
+      var ciphering2 = (index1[num2] - 97 + 33) % 26 + 97;
       indexAscii.push(ciphering2);
     }
 
 
-    for (var n = 0; n < indexAscii.length; n++) {
-      var alphabetLetters2 = String.fromCharCode(indexAscii[n]);
+    for (var num3 = 0; num3 < indexAscii.length; num3++) {
+      var alphabetLetters2 = String.fromCharCode(indexAscii[num3]);
       letters1.push(alphabetLetters2);
     }
   }
@@ -48,36 +48,36 @@ function decipher(str) {
   var letters2 = []; // ['A', 'B', 'C'] || ['a', 'b' ,'c']
 
   if (str === str.toUpperCase()) {
-    for (var o = 0; o < str.length; o++) {
-      index2.push(str.charCodeAt(o));
+    for (var num4 = 0; num4 < str.length; num4++) {
+      index2.push(str.charCodeAt(num4));
     }
 
-    for (var p = 0; p < index2.length; p++) {
-      var deciphering = (index2[p] + 65 - 33) % 26 + 65;
+    for (var num5 = 0; num5 < index2.length; num5++) {
+      var deciphering = (index2[num5] + 65 - 33) % 26 + 65;
       normalIndex.push(deciphering);
     }
 
-    for (var q = 0; q < normalIndex.length; q++) {
-      var alphabetLetters3 = String.fromCharCode(normalIndex[q]);
+    for (var num6 = 0; num6 < normalIndex.length; num6++) {
+      var alphabetLetters3 = String.fromCharCode(normalIndex[num6]);
       letters2.push(alphabetLetters3);
     }
   }
 
 
   if (str === str.toLowerCase()) {
-    for (var r = 0; r < str.length; r++) {
-      index2.push(str.charCodeAt(r));
+    for (var num7 = 0; num7 < str.length; num7++) {
+      index2.push(str.charCodeAt(num7));
     }
 
 
-    for (var s = 0; s < index2.length; s++) {
-      var deciphering2 = (index2[s] - 97 + 33) % 26 + 83;
+    for (var num8 = 0; num8 < index2.length; num8++) {
+      var deciphering2 = (index2[num8] - 97 + 33) % 26 + 83;
       normalIndex.push(deciphering2);
     }
 
 
-    for (var t = 0; t < normalIndex.length; t++) {
-      var alphabetLetters4 = String.fromCharCode(normalIndex[t]);
+    for (var num9 = 0; num9 < normalIndex.length; num9++) {
+      var alphabetLetters4 = String.fromCharCode(normalIndex[num9]);
       letters2.push(alphabetLetters4);
     }
   }
