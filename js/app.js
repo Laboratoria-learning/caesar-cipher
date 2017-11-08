@@ -8,11 +8,11 @@ do {
     var options = prompt('1.CIFRAR \n' + '2.DESCIFRAR'); // el usuario podra elegir una opcion ,depende de lo que quiera hacer.
 
     if (options === '1') {
-      cipher(phrase);
-      alert('Tu frase encriptada luce así : ' + newLetters);// si escribe 1 en el campo ,la frase se encriptará.
+      var wordCipher = cipher(phrase);
+      alert('Tu frase encriptada luce así : ' + wordCipher);// si escribe 1 en el campo ,la frase se encriptará.
     } else if (options === '2') { //  si escribe 2, la frase se desencripta
-      decipher(phrase);
-      alert('Tu frase desencriptada es así: ' + newLetters);
+      var wordDecipher = decipher(phrase);
+      alert('Tu frase desencriptada es así: ' + wordDecipher);
     } else { // si el usuario ingresa algo distinto de 1 y 2 ,saldrá el siguiente mensaje :
       alert('Opción inválida.');
     }
@@ -23,7 +23,8 @@ do {
 function cipher(phrase) {
   var positionAscii;
   var positionNew;
-  var newLetters = '' ;
+  var newLetters = '';
+  var result;
 
   for (var i = 0; i < phrase.length; i++) {
     if ((phrase[i].charCodeAt() > 64 && phrase[i].charCodeAt() < 91)) {
@@ -33,16 +34,17 @@ function cipher(phrase) {
       positionNew = ((positionAscii - 65) + 33) % 26 + 65;
       //  Convirtiendo codigo ASCII a una nueva letra
       newLetters = newLetters + String.fromCharCode(positionNew);
-      console.log(newLetters);
+      result = newLetters;
     } else if ((phrase[i].charCodeAt() > 96 && phrase[i].charCodeAt() < 123)) {
       positionAscii = phrase.charCodeAt(i);
       positionNew = ((positionAscii - 65) + 33) % 26 + 65;
       newLetters = newLetters + String.fromCharCode(positionNew);
-      console.log(newLetters);
+      result = newLetters;
     } else {
-      alert('No encriptamos/desencriptamos números.');
+      result = ('No encriptamos/desencriptamos números.');
     }
   }
+  return result;
 }
 
 // creando la función "decipher".
@@ -51,6 +53,7 @@ function decipher(phrase) {
   var positionAscii;
   var positionNew;
   var newLetters = '' ;
+  var result;
 
   for (var i = 0; i < phrase.length; i++) {
     if ((phrase[i].charCodeAt() > 64 && phrase[i].charCodeAt() < 91)) {
@@ -60,14 +63,15 @@ function decipher(phrase) {
       positionNew = ((positionAscii - 33) % 26) + 52;
       //  Convirtiendo codigo ASCII a una nueva letra
       newLetters = newLetters + String.fromCharCode(positionNew);
-      console.log(newLetters);
+      result = newLetters;
     } else if ((phrase[i].charCodeAt() > 96 && phrase[i].charCodeAt() < 123)) {
       positionAscii = phrase.charCodeAt(i);
       positionNew = ((positionAscii - 33) % 26) + 52;
       newLetters = newLetters + String.fromCharCode(positionNew);
-      console.log(newLetters);
+      result = newLetters;
     } else {
-      alert('No encriptamos/desencriptamos números.');
+      result = ('No encriptamos/desencriptamos números.');
     }
   }
+  return result;
 }
