@@ -11,8 +11,8 @@ do {
       cipher(phrase);
       alert('Tu frase encriptada luce así : ' + newLetters);// si escribe 1 en el campo ,la frase se encriptará.
     } else if (options === '2') { //  si escribe 2, la frase se desencripta
+      decipher(phrase);
       alert('Tu frase desencriptada es así: ' + newLetters);
-      dicepher(phrase);
     } else { // si el usuario ingresa algo distinto de 1 y 2 ,saldrá el siguiente mensaje :
       alert('Opción inválida.');
     }
@@ -57,13 +57,13 @@ function decipher(phrase) {
       //  Encontrar posición de la letra en el alfabeto ASCII
       positionAscii = phrase.charCodeAt(i);
       //  Encontrar nueva posición
-      positionNew = ((positionAscii - 33) % 26 + 52);
+      positionNew = ((positionAscii - 33) % 26) + 52;
       //  Convirtiendo codigo ASCII a una nueva letra
       newLetters = newLetters + String.fromCharCode(positionNew);
       console.log(newLetters);
     } else if ((phrase[i].charCodeAt() > 96 && phrase[i].charCodeAt() < 123)) {
       positionAscii = phrase.charCodeAt(i);
-      positionNew = ((positionAscii - 33) % 26 + 52);
+      positionNew = ((positionAscii - 33) % 26) + 52;
       newLetters = newLetters + String.fromCharCode(positionNew);
       console.log(newLetters);
     } else {
