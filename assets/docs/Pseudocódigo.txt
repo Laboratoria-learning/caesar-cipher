@@ -1,0 +1,78 @@
+Proceso CifradoCesar
+	opción = 0;
+	phrase = "";
+	Repetir
+		Escribir "¿Qué deseas realizar? \n 1.Cifrar \n 2.Desifrar"
+		Si opción = "1" Entonces
+			Repetir
+				phrase = "Ingrese una frase a cifrar"
+				Si NOphrase Entonces
+					"No ingrese nada" 
+				Fin Si
+			Hasta Que Nophrase
+			Leer potencia(phrase, 33);
+			Definir opción = 0;
+			Definir phrase = "";
+		Sino
+			Definiropción = "2"
+			Repetir
+				phrase = "Ingresa una frase a descifrar"
+				Si Nophrase Entonces
+					"No ingreso nada, vuelva a ingresarlo"				
+				Fin Si
+			Hasta Que Siphrase
+			Leer potencia(phrase, 33);
+			Definir opción = 0;
+			Definir phrase = "";
+		
+		Fin Si
+		opcion = 0;
+				
+	Hasta Que (opción != 0) 
+	codAsciiEncrypted = 0;
+	Si "¿Es una cadena?" Entonces;
+		"Es una sentence";
+	Fin Si
+	Si "¿La frase es una cadena?" Entonces;
+		"La sentence entra";
+	Fin Si
+	Función descifrada (phrCase, space)
+	    phraseCipher = "";
+		Para i = 0 Hasta phrCase.length Con Paso 1 Hacer
+			Definir convertLettertoAscii = phrase.charCodeAt(i);
+			Si convertLettertoAscii > 64 || convertLettertoAscii < 33 Hacer 
+				Si phrase.charAt(i) == phrase.charAt(i).toUpperCase() Entonces
+					codAsciiEncrypted = (convertLettertoAscii - 65 + space) % 26 + 65;
+				Sino
+					codAsciiEncrypted = (convertLettertoAscii - 97 + space) % 26 + 97;
+					Si convertLettertoAscii==32 Entonces
+						codAsciiEncrypted=32;
+					Fin Si
+				Fin Si
+				asciitoLetter = String.fromCharCode(codAsciiEncrypted);
+				phraseCipher += asciitoLetter;
+			Sino				
+				 "La frase ingresada contiene números";				
+			FinSi
+		FinPara
+	Fin Función
+	Función descifrada (phrCaseCipher, space)
+	    phraseDecipher = "";
+		Para i = 0 Hasta phrCaseCipher.length Con Paso 1 Hacer
+			Definir convertLettertoAscii = phraseCipher.charCodeAt(i);
+		    Si convertLettertoAscii > 64 || convertLettertoAscii < 33 Hacer 
+				Si phraseCipher.charAt(i) == phraseCipher.charAt(i).toUpperCase() Entonces
+					codAsciiEncrypted = (convertLettertoAscii - 65 + space) % 26 + 65;
+			    Sino
+				    codAsciiEncrypted = (convertLettertoAscii - 97 + space) % 26 + 97;
+				    Si convertLettertoAscii==32 Entonces
+						codAsciiEncrypted=32;
+				    Fin Si
+			    Fin Si
+			    asciitoLetter = String.fromCharCode(codAsciiEncrypted);
+			    phraseCipher += asciitoLetter;
+		    Sino				
+			"La frase ingresada contiene números";				
+			FinSi
+	    FinPara
+    Fin Función
