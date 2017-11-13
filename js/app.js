@@ -1,7 +1,7 @@
 /* Cifrado cesar
 Funcion que cifra mensaje según el algoritmo del cifrado cesar */
 function cipher() {
-  // Valida que el usuario no ingrese un campo vacío o que contenga números 
+  // Valida que el usuario no ingrese un campo vacío o que contenga números
   do {
   // muestra mensaje con un input para que el usuario ingrese la frase
     var phrase = prompt('Ingrese la frase a encriptar(Solo letras)').toUpperCase();
@@ -19,14 +19,14 @@ function cipher() {
     newArray.push(encryptedLetter);
   }
   // retorna el mensaje encriptado
-  var encryText = alert('La frase se encripto a ' + newArray.join(''))
-
+  var encryText = alert('La frase se encripto a ' + newArray.join(''));
 }
 // Desencripta mensaje según algoritmo del cifrado cesar
 function descipher() {
   do {
     var phrase = prompt('Ingrese la frase a desencriptar(Solo letras)').toUpperCase();
-  } while (phrase === '' || validatePhrase(phrase));//convertir la frase en un array
+  } while (phrase === '' || validatePhrase(phrase));
+  // convertir la frase en un array
   var array = phrase.split('');
   var newArray = [];
   // inicia un ciclo para desencriptar cada letra del array
@@ -39,8 +39,7 @@ function descipher() {
     newArray.push(decrypt);
   }
   // retorna alerta con el texto desencriptado
-  var decrypt = alert('La frase desencriptada es ' + newArray.join(''))
-
+  var decrypt = alert('La frase desencriptada es ' + newArray.join(''));
 }
 // valida que la frase no tenga numeros
 function validatePhrase(phrase) {
@@ -48,7 +47,7 @@ function validatePhrase(phrase) {
   // inicia ciclo para recorrer letra por letra y comprobar que esta no sea numero
   for (i = 0; i < phrase.length; i++) {
     // condiciona: devuelve true si en las posiciones de la lista de numeros no existe una sola letra de la frase
-    if (numbers.indexOf(phrase[i]) != -1) {
+    if (numbers.indexOf(phrase[i]) !== -1) {
       return true;
     }
   }
@@ -67,4 +66,4 @@ do {
   // llama a la funcion menu
   menu(option);
 }// hace esto mientras el usuario ingrese opciones del 1 al 3 y sea de tipo numerico
-while (option != 3 && option != NaN);
+while (option !== 3 && option !== NaN);
