@@ -11,9 +11,7 @@ function cipher(word) {
 
   if ((word.charCodeAt() >= 97 && word.charCodeAt() <= 122) || (word.charCodeAt() >= 65 && word.charCodeAt() <= 90)) {
     alert('muy bien');
-  }
-
-  else {
+  } else {
     alert('No es valido ingresar numeros');
   }
 
@@ -22,18 +20,15 @@ function cipher(word) {
   var codeAscii = 0;// variable donde se guarda el codigo correspondiente a cada letra en ascii
   for (var i = 0; i < word.length; i++) {
     codeAscii = word.charCodeAt(i); // para obtener el codigo ascii de una palabra ingresada
-    // Para letras mayusculas
-    if (codeAscii >= 65 && codeAscii <= 90) {
+    if (codeAscii >= 65 && codeAscii <= 90) // Para letras mayusculas
       wordTemp = (word.charCodeAt(i) - 65 + 33) % 26 + 65;
-    }
     
+
     // Para letras minusculas
     else {
-      (codeAscii >= 97 && codeAscii <= 122)
+      (codeAscii >= 97 && codeAscii <= 122);
       wordTemp = (word.charCodeAt(i) - 65 + 33) % 26 + 97;
     }
-
-
     wordCipher += (String.fromCharCode(wordTemp));
 
     // se va  almacenando uno por uno de acuerdo a la cantidad de letras de la palabra que se ingreso
@@ -55,9 +50,7 @@ function decipher(word) {
 
   if ((word.charCodeAt() >= 97 && word.charCodeAt() <= 122) || (word.charCodeAt() >= 65 && word.charCodeAt() <= 90)) {
     alert('muy bien');
-  }
-
-  else {
+  } else {
     alert('No es valido ingresar numeros');
   }
   var word = prompt('Ingrese la frase');
@@ -70,9 +63,8 @@ function decipher(word) {
     if (codeAscii >= 65 && codeAscii <= 90) {
       wordTemp = ((word.charCodeAt(i) - 33) % 26) ;
       // Para letras minusculas
-    }
-    else {
-      (codeAscii >= 97 && codeAscii <= 122)
+    } else {
+      (codeAscii >= 97 && codeAscii <= 122);
       wordTemp = ((word.charCodeAt(i) - 33) % 26) ;
     }
 
