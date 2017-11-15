@@ -1,7 +1,6 @@
 var phrase = prompt('Write here');
 
 function cipher(word) {
-  
   var strCipher = '' ; 
   for (var i = 0; i < word.length; i++) {
     // turn word into ASCII code.
@@ -11,7 +10,7 @@ function cipher(word) {
       // using the formula.   
       var num = (letter - 65 + 33) % 26 + 65;
       // num into string
-      strCipher =+ String.fromCharCode(num);
+      strCipher = + String.fromCharCode(num);
       // if 'word' is lowercase...
     } else if (Number.isNaN(parseInt(word)) && 97 <= letter && letter <= 122 && word !== '') {                           
       // using the formula.  
@@ -29,7 +28,7 @@ cipher(phrase);
 
 function decipher(word) { 
   var strDecipher = '' ; 
-  for (var i = 0; i < word.length; i++ ) {
+  for (var i = 0; i < word.length; i++) {
     var letter = word.charCodeAt(i);  
     
     if (Number.isNaN(parseInt(word)) && 65 <= letter && letter <= 90 && word !== '') {
