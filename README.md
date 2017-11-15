@@ -11,7 +11,7 @@ Consideraciones:
 
 ### Diagrama de flujo
 
-![Imagen a replicar](assets/imgs/diagrama-flujo.png)
+![Imagen a replicar](assets/imgs/diagrama_flujo.png)
 
 ### Pseudocódigo
 
