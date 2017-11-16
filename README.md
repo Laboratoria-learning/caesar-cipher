@@ -1,57 +1,47 @@
-# Cifrado César
+# Caesar cipher
+___
+### Inicio del programa
+* Al ingresar elegir entre las dos opciones
+     1. Cifrado 
+     2. Decifrado
 
-> Recuerda seguir siempre esta [guía de estilos](https://github.com/Laboratoria/js-style-guide/)
+* Si **1** -> Llama función Cipher
+    1. Crea variable StringCode.
+    2. Inicializa i = 0; si **i** es menor que **String**; aumentar + 1{
+    3. Variable **stringASCII** es igual a **String** donde transformara el numero sacado en i a codigo ASCII.
+    4. **SI** NewASCII es >= que 65 y NewASCII es <= 90 {
+         * anALetter = (NewASCII - 65 + 33) residuo de 26 + 65;
+         * newLetterAlpha = la respuesta de anALetter convertida a letra;
+         * se concatena Stringcode += newLetterAlpha;
+    }
+    5. **NO** NewASCII es >= que 97 y NewASCII es <=122 {
+        * anALetter =(NewASCII - 97 + 33)residuo de 26 + 97;
+        * minusLetter = la respuesta de anALetter convertida en letra;
+        * se concatena Stringcode +=minusLetter;
+    }
+    }
+    retornara alerta(StringCode);
+}
+* Si **2** -> LLama función Decipher
+    1. Crea variable StringCode.
+    2. Inicializa i = 0; si **i** es menor **String**; aumentar + 1.{
+        * varialbe **stringASCII** es igual a **String** donde transformara el numero sacado en i a ASCII.
+        * **si** NewASCII es >= 65 && NewASCII <=90{
+            * variable anALetter =(NewsASCII + 65 - 33) residuo de 26 -65;
+            * variable newLetterAlpha = la respuesta de anALetter convertida a letra;
+            * se concatena stringcode += newLetterAlpha;
+        }
+    3. **NO** NewASCII es >= que 97 y NewASCII es <= 122{
+        * variable minusLetter = (NewASCII - 97+ 33 ) residuo de 26 - 97;
+        * variable newMinusLetter = la respuesta de minusLetter convertida a letra;
+        * se concatena stringCode += newMnusLetter;
+    }
+}
+retornar alerta(stringCode);
+}
 
-Crea una web que pida, por medio de un `prompt()`, una frase al usuario y
-devuelva el mismo mensaje encriptado según el
-[algoritmo de Cifrado César](https://en.wikipedia.org/wiki/Caesar_cipher)
-con el parámetro de desplazamiento de **33 espacios hacia la derecha**
-
-Por ejemplo:
-
-- Texto original:   `ABCDEFGHIJKLMNOPQRSTUVWXYZ`
-- Texto codificado: `HIJKLMNOPQRSTUVWXYZABCDEFG`
-  
-## Entregables
-
-Para cada producto debes entregar **un repositorio de GitHub** que
-contenga:
-1. Archivo `README.md` que explique el **pseudocódigo** de tu solución y su
-**diagrama de flujo**
-2. Archivo `app.js` con el **código** de tu solución
-3. Archivo `index.html` vinculado con tu `app.js`
-
-## Tips
-
-A continuación un video de Michelle que te lleva a través de la fórmula
-matemática del Cifrado César y un par de cosas más que debes saber para
-resolver este reto. ¡Escúchala con detenimiento y sigue sus consejos! :)
-
-[![tips caesar cipher](https://img.youtube.com/vi/zd8eVrXhs7Y/0.jpg)](https://www.youtube.com/watch?v=zd8eVrXhs7Y)
-
-También te compartimos más información de lo que Michelle te ha explicado 
-en el video anterior:
-
-- [Aprende más sobre `charCodeAt()`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/charCodeAt)
-- [Aprende más sobre `String.fromCharCode()`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/fromCharCode)
-- [Aprende más sobre `ASCII`](http://conceptodefinicion.de/ascii/)
-
-## Consideraciones específicas
-
-1. Tu programa debe ser capaz de cifrar y descifrar tanto letras 
-   mayúsculas como minúsculas. La fórmula para descifrar es: `(x - n) % 26`
-2. Tu código debe estar compuesto por 2 funciones con los siguientes 
-   nombres: `cipher` y `decipher`
-3. El usuario no debe poder ingresar un campo vacío o que contenga números
-
-## Criterios de evaluación
-
-Se tomarán en cuenta las siguientes consideraciones a la hora de evaluar tu solución:
-
-1. Nombramiento de variables
-2. Indentación
-3. Validación de input: el usuario no debe poder ingresar un campo vacío o de tipo que no corresponda
-4. Estructura de tus archivos
-5. Archivo `README.md` correctamente redactado
-6. Uso de comentarios para hacer tu código más legible
-7. Que el programa cumpla con el propósito requerido
+~~~
+Formula (n + 33) % 26 ; 
+~~~
+![](Imagenes/flujo1.PNG)
+![](Imagenes/flujo2.PNG)# Ceasar-Cipher-DCR
