@@ -1,0 +1,31 @@
+PSEUDOCÓDIGO CIFRADO CÉSAR
+
+  ESCRIBIR 'prompt Inserta la frase'
+    ESCRIBIR   si es un string vacío o número
+		            vuelve al inicio
+	             si es un string
+		            pasa a cipher
+    ESCRIBIR Variable Cipher
+	             Primero revisa si en el string insertado hay mayúsculas
+                 si son mayúsculas
+			              las convierte
+		             si son minúsculas
+			              las deja tal y cómo están
+	 Devuelve la frase encriptada
+
+  ESCRIBIR prompt "¿Quieres desencriptar?"
+	   ESCRIBIR  se ve si es un string
+	               si es un string vacío o número
+		                vuelve al inicio
+	               si es un string
+		                pasa a decipher
+     ESCRIBIR Variable Cipher
+	            Primero revisa si en el string insertado hay mayúsculas
+                 si son mayúsculas
+			              las convierte
+		             si son minúsculas
+			              las deja tal y cómo están
+
+     Devuelve la frase desencriptada
+
+  FINDELPROCESO
