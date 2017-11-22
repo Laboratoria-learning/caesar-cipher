@@ -18,8 +18,8 @@ function userOption(num) { // creacion del menú principal
           var capitalLetter = String.fromCharCode(valueCapitalLetter); // convierte el nuevo ASCII en una letra del alfabeto
           codeCipher += capitalLetter; // concatenamos para formar la palabra
         } else if (numberCodeAscii >= 97 && numberCodeAscii <= 122) { // condición código ASCII (Valores minúsculas)
-          var valueLetterLower = (numberCodeAscii - 97 + 33) % 26 + 97; // Obtener el nuevo código ASCII mediante fórmula
-          var letterLower = String.fromCharCode(valueLetterLower); // convertir el nuevo ASCII en letra del alfabeto
+          var lowercaseLetter = (numberCodeAscii - 97 + 33) % 26 + 97; // Obtener el nuevo código ASCII mediante fórmula
+          var letterLower = String.fromCharCode(lowercaseLetter); // convertir el nuevo ASCII en letra del alfabeto
           codeCipher += letterLower; // concatenar para formar la nueva palabra
         } else if (numberCodeAscii === 32) { // si el caracter es un espacio vacio
           var space = ' '; // se devuelve el mismo valor
