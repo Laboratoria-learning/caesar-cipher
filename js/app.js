@@ -1,12 +1,17 @@
-function useroption(num) { // creacion del menú principal
+function userOption(num) { // creacion del menú principal
   if (num === '1') {
-    function cipher() {
+       cipher();
+  } else if (num === '2') {
+       decipher(); // llama a la función
+  }
+}
+
+ function cipher() {
       do {
         var string = prompt('Ingrese texto');
-      }
-      while (!string || !/^[a-zA-Z\s]*$/.test(string)); // valida que solo ingrese  texto y espacios entre texto
+      }while (!string || !/^[a-zA-Z\s]*$/.test(string)); // valida que solo ingrese  texto y espacios entre texto
       var codeCipher = ''; // creacion de variable que alojara el resultado final
-      for (i = 0;i < string.length;i++) {
+      for (i = 0; i < string.length; i++) {
         var numberCodeAscii = string.charCodeAt(i); // obtenemos el código ASCII
         if (numberCodeAscii >= 65 && numberCodeAscii <= 90) { // condición codigo ASCII (Valores Mayusculas)
           var valueCapitalLetter = (numberCodeAscii - 65 + 33) % 26 + 65; // Obtener el nuevo código ASCII mediante fórmula
@@ -23,15 +28,13 @@ function useroption(num) { // creacion del menú principal
       }
       return alert('Texto original: ' + string + '    Texto codificado : ' + codeCipher);
     }
-    cipher();
-  } else if (num === '2') {
-    function decipher() {
+
+function decipher() {
       do {
         var string = prompt('Ingrese texto');
-      }
-      while (!string || !/^[a-zA-Z\s]*$/.test(string)); // valida que solo ingrese  texto y espacio entre texto
+      } while (!string || !/^[a-zA-Z\s]*$/.test(string)); // valida que solo ingrese  texto y espacio entre texto
       var codeDecipher = '';
-      for (i = 0;i < string.length;i++) {
+      for (i = 0; i < string.length; i++) {
         var numberCodeAscii = string.charCodeAt(i); // obtenemos el código ASCII
 
         if (numberCodeAscii >= 65 && numberCodeAscii <= 90) { // validando para letras mayúsculas
@@ -39,25 +42,21 @@ function useroption(num) { // creacion del menú principal
           var capitalLetter = String.fromCharCode(valueCapitalLetter); // convierte el nuevo ASCII en una letra del alafabeto
           codeDecipher += capitalLetter; // concatenamos
         } else if (numberCodeAscii >= 97 && numberCodeAscii <= 122) { // validando para letras minusculas
-          var valueLetterLower = (numberCodeAscii + 97 - 45) % 26 + 97 ; // código ASCII de la nueva letra
-          var letterLower = String.fromCharCode(valueLetterLower); // convierte el nuevo ASCII en una letra del alfabeto
+          var lowercaseLetter = (numberCodeAscii + 97 - 45) % 26 + 97 ; // código ASCII de la nueva letra
+          var letterLower = String.fromCharCode(lowercaseLetter); // convierte el nuevo ASCII en una letra del alfabeto
           codeDecipher += letterLower; // concatenamos la nueva palabra
         } else if (numberCodeAscii === 32) { // si el caracter es un espacio vacio
           var space = ' ';
           codeDecipher += space; // concatenamos el mismo valor
         }
       }
-      return alert('Texto codificado :' + string + '\n  Texto original :' + codeDecipher); // muestra la palabra decodificada
+      return alert('Texto codificado : ' + string + '\nTexto original : ' + codeDecipher); // muestra la palabra decodificada
       // muestra mensaje en la página web Index
     }
-
-    decipher(); // llama a la función
-  }
-}
 
 
 // Creación de menú dentro de un prompt que permita el acceso a las dos funciones
 do {
-  var num = prompt('Ingrese opción \n 1. Codificar en Cesar \n 2. Decodificar en Cesar \n 3.SALIR');
-  useroption(num);
+  var num = prompt('Ingrese opción : \n1. Codificar en Cesar \n2. Decodificar en Cesar \n3.SALIR');
+  userOption(num);
 } while (num !== '3');
