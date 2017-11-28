@@ -38,14 +38,14 @@ function decipher(phrase) {
 }
 
 // Por medio de 'prompt' le pedimos al usuario que ingrese un frase:
-var order = (prompt('INGRESE UNA FRASE: '));
+var phrase = prompt('INGRESE UNA FRASE: ');
   
 // Condicional para que no puedan dejar el prompt vacio:
-if (order !== '') {
-  // Bucle que recorra la variable order:
-  for (var j = 0; j < order.length; j++) {
+if (phrase !== '') {
+  // Bucle que recorra la variable phrase:
+  for (var j = 0; j < phrase.length; j++) {
     // Condicional para que no ingresen campos vacios:
-    if (order[j] === ' ') {
+    if (phrase[j] === ' ') {
       spaces = true;
       break; // Para que cuando spaces sea true, salga del bucle.
     } else {
@@ -57,19 +57,19 @@ if (order !== '') {
   if (spaces === true) {
     alert('No ingrese campos en blanco');
   } else {
-    // Bucle que recorra la variable order:
-    for (var re = 0; re < order.length; re++) {
+    // Bucle que recorra la variable phrase:
+    for (var re = 0; re < phrase.length; re++) {
       // Condicional para que no se pueda ingresar numeros:
-      if (order.charCodeAt(re) >= 65 && order.charCodeAt(re) <= 90 || order.charCodeAt(re) > 96 && order.charCodeAt(re) < 123) {
-        var value = true;
+      if (phrase.charCodeAt(re) >= 65 && phrase.charCodeAt(re) <= 90 || phrase.charCodeAt(re) > 96 && phrase.charCodeAt(re) < 123) {
+        var stringContainsOnlyLetters = true;
       } else {
-        var value = false;
-        break; // Para que cuando value sea true, salga del bucle.
+        var stringContainsOnlyLetters = false;
+        break; // Para que cuando stringContainsOnlyLetters sea true, salga del bucle.
       }
     }
   
     // Condicional si ha ingresado solo letras sin numeros:
-    if (value === true) {
+    if (stringContainsOnlyLetters) {
       // Preguntamos y llamamos a las funciones:
       do {
         var answer = prompt('INGRESE UNA OPCIÓN: \n \n 1. Cifrar \n 2. Descifrar \n 3. Salir');
@@ -77,9 +77,9 @@ if (order !== '') {
         // Condicional si no ha ingresado nada
         if (answer !== '') {
           if (answer === '1') {
-            document.write('Cifrado  ->    ' + cipher(order));
+            document.write('Cifrado  ->    ' + cipher(phrase));
           } else if (answer === '2') {
-            document.write('<p> Descifrado  ->    ' + decipher(order));
+            document.write('<p> Descifrado  ->    ' + decipher(phrase));
           } else if (answer === '3') {
             document.write('**** ADIÓS ****');
           } else {
@@ -90,7 +90,7 @@ if (order !== '') {
     }
   
     // Mensaje si ha ingresado numeros:
-    if (value === false) {
+    if (!stringContainsOnlyLetters) {
       alert('Ingrese solo letras');
     }
   }
