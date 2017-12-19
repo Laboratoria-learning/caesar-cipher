@@ -1,57 +1,115 @@
-# Cifrado César
+## Cifrado y Descifrado Cesar
 
-> Recuerda seguir siempre esta [guía de estilos](https://github.com/Laboratoria/js-style-guide/)
+La siguiente web ha sido diseñada para cifrar y descifrar palabras según el algoritmo del cifrado de Cesar.
+Más información sobre el cifrado de Cesar en el siguiente link: [Caesar_cipher](https://en.wikipedia.org/wiki/Caesar_cipher)
 
-Crea una web que pida, por medio de un `prompt()`, una frase al usuario y
-devuelva el mismo mensaje encriptado según el
-[algoritmo de Cifrado César](https://en.wikipedia.org/wiki/Caesar_cipher)
-con el parámetro de desplazamiento de **33 espacios hacia la derecha**
+Diagrama de flujo Cifrado :
+![Con titulo](assets/docs/cipher.png "Cifrado")
+Diagrama de flujo Descifrado :
 
-Por ejemplo:
+![Con titulo](assets/docs/decipher.png "Cifrado")
 
-- Texto original:   `ABCDEFGHIJKLMNOPQRSTUVWXYZ`
-- Texto codificado: `HIJKLMNOPQRSTUVWXYZABCDEFG`
-  
-## Entregables
+Diagrama de flujo Función menú principal
 
-Para cada producto debes entregar **un repositorio de GitHub** que
-contenga:
-1. Archivo `README.md` que explique el **pseudocódigo** de tu solución y su
-**diagrama de flujo**
-2. Archivo `app.js` con el **código** de tu solución
-3. Archivo `index.html` vinculado con tu `app.js`
+![Con titulo](assets/docs/funcionmenu.png "Cifrado")
 
-## Tips
+La web esta conformada por un página principal llamada Index.html que contiene una función llamada **useroption(num)** que recibe un parametro , que es el número de la opción requerida . Esta función aloja las dos funciones de cifrado y decifrado, y las llama mediante un **prompt** , dependiendo de la opción que elija el usuario
 
-A continuación un video de Michelle que te lleva a través de la fórmula
-matemática del Cifrado César y un par de cosas más que debes saber para
-resolver este reto. ¡Escúchala con detenimiento y sigue sus consejos! :)
+* Opción 1 : Cifrado César
+* Opción 2 : Descifrado César
+* Opción 3 : Salir
 
-[![tips caesar cipher](https://img.youtube.com/vi/zd8eVrXhs7Y/0.jpg)](https://www.youtube.com/watch?v=zd8eVrXhs7Y)
+ Existe una validación si el usuario ingresa otra opción no mencionada, mostrará regresara al **prompt** hasta que se ingrese una opción válida.
 
-También te compartimos más información de lo que Michelle te ha explicado 
-en el video anterior:
+ Este menú se encuentra fuera de la función useroption(num) y es invocado mediante una estructura Do - While . Dentro de esta estructura hay un **prompt** que describe las opciones del menú y valida el ingreso de datos.
 
-- [Aprende más sobre `charCodeAt()`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/charCodeAt)
-- [Aprende más sobre `String.fromCharCode()`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/fromCharCode)
-- [Aprende más sobre `ASCII`](http://conceptodefinicion.de/ascii/)
+Ambas opciones (cifrado y decifrado ) obtienen la entrada de datos mediante un **prompt** y muestra el texto convertido en la página web.
 
-## Consideraciones específicas
 
-1. Tu programa debe ser capaz de cifrar y descifrar tanto letras 
-   mayúsculas como minúsculas. La fórmula para descifrar es: `(x - n) % 26`
-2. Tu código debe estar compuesto por 2 funciones con los siguientes 
-   nombres: `cipher` y `decipher`
-3. El usuario no debe poder ingresar un campo vacío o que contenga números
+### Especificaciones de la función Cipher
 
-## Criterios de evaluación
+Para la función **cipher** se implemento lo siguiente :
+*  Validar que no se ingrese números ni que el campo este vacio.
 
-Se tomarán en cuenta las siguientes consideraciones a la hora de evaluar tu solución:
+```javascript
+do{
+    var string= prompt("Ingrese texto")
+  }
+while (!string || !/^[a-zA-Z\s]*$/.test(string) );
 
-1. Nombramiento de variables
-2. Indentación
-3. Validación de input: el usuario no debe poder ingresar un campo vacío o de tipo que no corresponda
-4. Estructura de tus archivos
-5. Archivo `README.md` correctamente redactado
-6. Uso de comentarios para hacer tu código más legible
-7. Que el programa cumpla con el propósito requerido
+```
+
+
+*  Crear una variable string con valor obtenido mediante un prompt ("Ingrese texto a codificar").
+*  Crear una variable codeCipher con valor = "", donde se va a concatenar los valores ya codificados y este valor es que el se va a mostrar como resultado final del cifrado.
+
+*  Implementar un for que recorra la cadena , letra por letra para ir cambiandola según la fórmula del cifrado de Cesar.
+*  Dentro del **for** creamos una variable  numberCodeAscii
+que obtiene el código ASCII de la letra recorrida .
+```javascript
+var numberCodeAscii = string.charCodeAt(i);
+```
+* Condicionar el valor del código ASCII según los rangos establecidos.
+    *  Mayor o igual que 65 y menor o igual que 90 , para letras mayúsculas.
+    * Mayor o igual que 97 y menor o igual que 122, para letras minúsculas.
+*  Si es mayúscula :
+    * Asignar a una variable **valueCapitalLetter** el valor obtenido según la fórmula . Este valor es el nuevo código ASCII de la letra.
+```javascript
+var valueCapitalLetter = (numberCodeAscii-65 +33)%26 + 65;
+```
+* Si es minúscula :
+
+    * Asignar a una variable **valueLetterLower** el valor obtenido según la fórmula . Este valor es el nuevo código ASCII de la letra.
+
+```javascript
+    var valueLetterLower = (numberCodeAscii-97 +33)%26 +97;
+```
+* Convertir el código ASCII obtenido a una letra del alfabeto.
+*  Concatenar cada nueva letra obtenida a la variable codeCipher.
+* Si hay un espacio, solo se reasigna su valor y se concatena.
+
+*  Mostrar la palabra convertida en  un alert.
+
+### Especificaciones de la función decipher
+
+Para la función **decipher** se implemento lo siguiente :
+
+*  Crear una variable string con valor obtenido mediante un prompt ("Ingrese texto a codificar").
+*  Crear una variable codeCipher con valor = "", donde se va a concatenar los valores ya codificados y este valor es que el se va a mostrar como resultado final del cifrado.
+*  Validar que no se ingrese números ni que el campo este vacio.
+*  Implementar un for que recorra la cadena , letra por letra para ir cambiandola según la fórmula del cifrado de Cesar.
+*  Dentro del **for** creamos una variable  numberCodeAscii
+que obtiene el código ASCII de la letra recorrida .
+```javascript
+var numberCodeAscii = string.charCodeAt(i);
+```
+* Condicionar el valor del código ASCII según los rangos establecidos.
+    *  Mayor o igual que 65 y menor o igual que 90 , para letras mayúsculas.
+    * Mayor o igual que 97 y menor o igual que 122, para letras minúsculas.
+*  Si es mayúscula :
+    * Asignar a una variable **valueCapitalLetter** el valor obtenido según la fórmula . Este valor es el nuevo código ASCII de la letra.
+```javascript
+var valueCapitalLetter = (numberCodeAscii+65-33)%26+65 ;
+```
+* Si es minúscula :
+
+    * Asignar a una variable **valueLetterLower** el valor obtenido según la fórmula . Este valor es el nuevo código ASCII de la letra.
+```javascript
+var valueLetterLower =  (numberCodeAscii+97-45)%26-97
+```
+* Convertir el código ASCII obtenido a una letra del alfabeto
+
+*  Concatenar cada nueva letra obtenida a la variable codeCipher.
+
+* Si hay un espacio, solo se reasigna su valor y se concatena.
+*  Mostrar la palabra convertida en un alert.
+
+### Especificaciones de la función useroption(num)
+La función useroption(num) almacena dentro de ella las funciones de cifrado y decifrado.
+* Crear un **if** , con la primera condición
+num ==="1"  que llamará a la función cifrado.
+*  Dentro de ella se alojara el código de cifrado cesar mencionado anteriormente.
+* Crear un  **else if** con la opción num ==="2" que llamará a la función decifrado.
+* Dentro de ella se alojara el código de decifrado cesar mencionado anteriormente.
+
+* Salir de esta función e invocarla mediante una estructura Do - While, que almacena un prompt con las opciones del menú y una validación que no ingrese otro valor diferente 1,2 o 3.
