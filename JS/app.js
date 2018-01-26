@@ -1,28 +1,31 @@
-var phrase = prompt('Ingresa la frase a decodificar');
-var newarray = [];
-var unicode = [];
-
-function cipher(str) {
-  var array = phrase.split('');
-  for (i = 0; i <= array.length - 1;i++) {
-    unicode.push(phrase.charCodeAt(i));
-  }
-
-  for (i = 0; i <= unicode.length - 1; i++) {
-    newarray.push((unicode[i] - 65 + 33) % 26 + 65);
-  }
-  return newarray;
-}
-var arr = cipher(phrase);
-function decipher(array2) {
-  var arr2 = [];
-  for (i = 0; i <= array2.length - 1; i++) {
-    arr2.push(String.fromCharCode(array2[i]));
-    return arr2;
-  }
-  if (isNaN(phrase) === false) {
-    'Ingrese una frase por favor';
-  } else {
-  }
-}
-decipher(arr);
+$(document).ready(function() {
+$('#text').focus();
+//Funcion para Codificar
+  $('#code').on('click', function cipher() {
+      let str = $('#text').val();
+      let unicode;
+      let word;
+      let newPhrase= '';
+      for (i = 0; i <= str.length - 1; i++) {
+        unicode = str.charCodeAt(i);
+        word = (unicode - 97 + 33) % 26 + 97;
+        let neWord = String.fromCharCode(word);
+        newPhrase = newPhrase.concat(neWord);
+      }
+      return document.write('Tu frase codificada es: ' + newPhrase);
+    });
+//Función para Decodificar
+  $('#decode').on('click', function decipher() {
+    let str2 = $('#text').val();
+    let unicode2;
+    let word2;
+    let newPhrase2 = '';
+    for (var i = 0; i <= str2.length - 1; i++) {
+        unicode2 = str2.charCodeAt(i);
+        word2 = (unicode2 + 97 + 33) % 26 + 97;
+        let neWord2 = String.fromCharCode(word2);
+        newPhrase2 = newPhrase2.concat(neWord2);
+      }
+      return document.write('Tu frase decodificada es: ' + newPhrase2) ;
+  });
+});
