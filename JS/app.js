@@ -2,7 +2,7 @@ $(document).ready(function() {
 $('#text').focus();
 //Funcion para Codificar
   $('#code').on('click', function cipher() {
-      let str = $('#text').val();
+      const str = $('#text').val();
       let unicode;
       let word;
       let newPhrase= '';
@@ -16,7 +16,7 @@ $('#text').focus();
     });
 //Función para Decodificar
   $('#decode').on('click', function decipher() {
-    let str2 = $('#text').val();
+    const str2 = $('#text').val();
     let unicode2;
     let word2;
     let newPhrase2 = '';
