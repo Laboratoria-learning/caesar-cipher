@@ -1,90 +1,88 @@
 // Creando funcion Cifrado Cesar
 function cipher(msg, x) {
-  // Creando variable para el código original
+  // Creando variables
   var origCode = 0;
-  // Creando variable para el código nuevo
   var newCode = 0;
-  // Creando variable para letra nueva
   var newLetter = '';
+  var cipherMsg = '';
 
   // Recorriendo el string de izquierda a derecha
   for (var i = 0; i < msg.length; i++) {
     // Encontramos el código de cada caracter con el método charCodeAt
     origCode = msg.charCodeAt(i);
-    // Si el caracter es mayuscula se encuentra entre los codigos 65 y 90
-    if (origCode >= 65 && origCode <= 90) {
-      newCode = (origCode - 65 + x) % 26 + 65;
+    // Si el caracter es una letra mayúscula o minúscula (entre los códigos 65 y 90 o 97 y 122),
+    // realiza el cifrado, de lo contrario agrega el caracter original al nuevo string
+    if (origCode >= 'A'.charCodeAt(0) && origCode <= 'Z'.charCodeAt(0)) {
+      newCode = (origCode - 'A'.charCodeAt(0) + x) % 26 + 'A'.charCodeAt(0);
       newLetter = String.fromCharCode(newCode);
-      msg = msg.slice(0, i) + newLetter + msg.slice(i + 1, msg.length);
-      // Si el caracter es minuscula se encuentra entre los codigos 97 y 122
-    } else if (origCode >= 97 && origCode <= 122) {
-      newCode = (origCode - 97 + x) % 26 + 97;
+      cipherMsg += newLetter;
+    } else if (origCode >= 'a'.charCodeAt(0) && origCode <= 'z'.charCodeAt(0)) {
+      newCode = (origCode - 'a'.charCodeAt(0) + x) % 26 + 'a'.charCodeAt(0);
       newLetter = String.fromCharCode(newCode);
-      msg = msg.slice(0, i) + newLetter + msg.slice(i + 1, msg.length);
+      cipherMsg += newLetter;
+    } else {
+      cipherMsg += String.fromCharCode(origCode);
     }
   }
   // Retornando mensaje cifrado
-  return alert('Mensaje cifrado:\n' + msg);
+  return alert('Mensaje cifrado:\n' + cipherMsg);
 }
 
 // Creando función para descrifrar
 function decipher(msg, x) {
-  // Creando variable para el código cifrado
+  // Creando variables
   var newCode = 0;
-  // Creando variable para el código original
   var origCode = 0;
-  // Creando variable para la letra descifrada
   var origLetter = '';
+  var decipherMsg = '';
 
   // Recorriendo el string de izquierda a derecha
   for (var i = 0; i < msg.length; i++) {
     // Encontramos el código de cada caracter mediante el método charCodeAt
     newCode = msg.charCodeAt(i);
-    // Si el caracter es mayuscula se encuentra entre los codigos 65 y 90
-    if (newCode >= 65 && newCode <= 90) {
-      if ((newCode - x % 26) < 65)
-        origCode = 90 - (x % 26) + (newCode - 65) + 1;
-      else 
+    // Si el caracter es una letra mayúscula o minúscula (entre los códigos 65 y 90 o 97 y 122),
+    // realiza el cifrado, de lo contrario agrega el caracter original al nuevo string
+    if (newCode >= 'A'.charCodeAt(0) && newCode <= 'Z'.charCodeAt(0)) {
+      if ((newCode - x % 26) < 'A'.charCodeAt(0)) {
+        origCode = 'Z'.charCodeAt(0) - (x % 26) + (newCode - 'A'.charCodeAt(0)) + 1;
+      } else {
         origCode = (newCode - x % 26);
-      // Teniendo el código original se puede encontrar la letra descifrada mediante el método fromCharCode
+      }
       origLetter = String.fromCharCode(origCode);
-      msg = msg.slice(0, i) + origLetter + msg.slice(i + 1, msg.length);
-    } else if (newCode >= 97 && newCode <= 122) { // Si el caracter es minuscula se encuentra entre los codigos 97 y 122
-      if ((newCode - x % 26) < 97)
-        origCode = 122 - (x % 26) + (newCode - 97) + 1;
-      else 
+      decipherMsg += origLetter;
+    } else if (newCode >= 'a'.charCodeAt(0) && newCode <= 'z'.charCodeAt(0)) {
+      if ((newCode - x % 26) < 'a'.charCodeAt(0)) {
+        origCode = 'z'.charCodeAt(0) - (x % 26) + (newCode - 'a'.charCodeAt(0)) + 1;
+      } else { 
         origCode = (newCode - x % 26);
-      // Teniendo el código original se puede encontrar la letra descifrada mediante el método fromCharCode
+      }
       origLetter = String.fromCharCode(origCode);
-      msg = msg.slice(0, i) + origLetter + msg.slice(i + 1, msg.length);
+      decipherMsg += origLetter;
+    } else {
+      decipherMsg += String.fromCharCode(newCode);
     }
-    // Cambiando el caracter cifrado por el descifrado
   }
   // Retornando mensaje descifrado
-  return alert('Mensaje descifrado:\n' + msg);
+  return alert('Mensaje descifrado:\n' + decipherMsg);
 }
 
 // Menú de opciones para cifrar o descifrar mensajes
 do {
   var menu = '1.Cifrar mensaje\n2.Descifrar mensaje\n3.Salir';
   var option = prompt('Ingrese una opción:\n' + menu);
-  
   // Si la opción es 1
   if (option === '1') {
     var msg = prompt('Ingrese mensaje a cifrar:');
     // Llamar función cipher
     if (msg !== '') {
       cipher(msg, 33);
-      break; // break para salir del bucle
     }
-    
     // Si la opción es 2  
   } else if (option === '2') {
     var msg = prompt('Ingrese mensaje a descifrar:');
     // Llamar función decipher
     if (msg !== '') {
       decipher(msg, 33);
-      break; // break para salir del bucle
     }
   }
 } while (option !== '3');
