@@ -1,48 +1,51 @@
-var phrase = prompt('Write here');
+let phrase = prompt('Write here');
+let phraseArr = phrase.split('');
+// console.log(Array.isArray(phraseArr)); // ["abc"]
 
-function cipher(word) {
-  var strCipher = '' ; 
-  for (var i = 0; i < word.length; i++) {
-    // turn word into ASCII code.
-    var letter = word.charCodeAt(i);  
-    // if 'word' is uppercase...
+const cipher = word => {
+  let strCipher = '' ; 
+  // En lugar de for se usará fiñter para recorrer la frase palabra por palabra
+  let positionPhraseLetter = phraseArr.filter((position) => {
+    let positionOfLetter = phraseArr.indexOf(position);
+    // regresa el codigo en número ascii
+    let letter = word.charCodeAt(positionOfLetter);
     if (Number.isNaN(parseInt(word)) && 65 <= letter && letter <= 90 && word !== '') {
       // using the formula.   
-      var num = (letter - 65 + 33) % 26 + 65;
+      let num = (letter - 65 + 33) % 26 + 65;
       // num into string
       strCipher = + String.fromCharCode(num);
       // if 'word' is lowercase...
     } else if (Number.isNaN(parseInt(word)) && 97 <= letter && letter <= 122 && word !== '') {                           
       // using the formula.  
-      var num2 = (letter - 97 + 33) % 26 + 97;
+      let num2 = (letter - 97 + 33) % 26 + 97;
       // num into string
       strCipher = strCipher + String.fromCharCode(num2);
     } else {
       alert('Write Again, please.');
     } 
-  }
-  return alert(strCipher);
+    return alert(strCipher);
+  });
 }  
 cipher(phrase);
 
 
-function decipher(word) { 
-  var strDecipher = '' ; 
-  for (var i = 0; i < word.length; i++) {
-    var letter = word.charCodeAt(i);  
+// const decipher = word => { 
+//   let strDecipher = '' ; 
+//   for (var i = 0; i < word.length; i++) {
+//     let letter = word.charCodeAt(i);  
     
-    if (Number.isNaN(parseInt(word)) && 65 <= letter && letter <= 90 && word !== '') {
-      // añadir la formula y almaceno en num   
-      var num = (letter - 65 + 26) % 26 + 65;
+//     if (Number.isNaN(parseInt(word)) && 65 <= letter && letter <= 90 && word !== '') {
+//       // añadir la formula y almaceno en num   
+//       let num = (letter - 65 + 26) % 26 + 65;
      
-      strDecipher = strDecipher + String.fromCharCode(num);
-    } else if (Number.isNaN(parseInt(word)) && 97 <= letter && letter <= 122 && word !== '') {      
-      var num2 = (letter - 97 + 26) % 26 + 97;
-      strDecipher = strDecipher + String.fromCharCode(num2);
-    } else {
-      alert('Write Again, please.');
-    } 
-  }
-  return alert(strDecipher);
-}  
-decipher(phrase);
+//       strDecipher = strDecipher + String.fromCharCode(num);
+//     } else if (Number.isNaN(parseInt(word)) && 97 <= letter && letter <= 122 && word !== '') {      
+//       let num2 = (letter - 97 + 26) % 26 + 97;
+//       strDecipher = strDecipher + String.fromCharCode(num2);
+//     } else {
+//       alert('Write Again, please.');
+//     } 
+//   }
+//   return alert(strDecipher);
+// }  
+// decipher(phrase);
