@@ -4,7 +4,7 @@ let phraseArr = phrase.split('');
 
 const cipher = word => {
   let strCipher = '' ; 
-  // En lugar de for se usará fiñter para recorrer la frase palabra por palabra
+  // En lugar de for se usará filter para recorrer la frase palabra por palabra
   let positionPhraseLetter = phraseArr.filter((position) => {
     let positionOfLetter = phraseArr.indexOf(position);
     // regresa el codigo en número ascii
@@ -29,23 +29,25 @@ const cipher = word => {
 cipher(phrase);
 
 
-// const decipher = word => { 
-//   let strDecipher = '' ; 
-//   for (var i = 0; i < word.length; i++) {
-//     let letter = word.charCodeAt(i);  
+const decipher = word => { 
+  let strDecipher = '' ; 
+  
+  let positionPhraseLetter = phraseArr.filter((position) => {
+    let positionOfLetter = phraseArr.indexOf(position);
+    let letter = word.charCodeAt(positionOfLetter);  
     
-//     if (Number.isNaN(parseInt(word)) && 65 <= letter && letter <= 90 && word !== '') {
-//       // añadir la formula y almaceno en num   
-//       let num = (letter - 65 + 26) % 26 + 65;
+    if (Number.isNaN(parseInt(word)) && 65 <= letter && letter <= 90 && word !== '') {
+      // añadir la formula y almaceno en num   
+      let num = (letter - 65 + 26) % 26 + 65;
      
-//       strDecipher = strDecipher + String.fromCharCode(num);
-//     } else if (Number.isNaN(parseInt(word)) && 97 <= letter && letter <= 122 && word !== '') {      
-//       let num2 = (letter - 97 + 26) % 26 + 97;
-//       strDecipher = strDecipher + String.fromCharCode(num2);
-//     } else {
-//       alert('Write Again, please.');
-//     } 
-//   }
-//   return alert(strDecipher);
-// }  
-// decipher(phrase);
+      strDecipher = strDecipher + String.fromCharCode(num);
+    } else if (Number.isNaN(parseInt(word)) && 97 <= letter && letter <= 122 && word !== '') {      
+      let num2 = (letter - 97 + 26) % 26 + 97;
+      strDecipher = strDecipher + String.fromCharCode(num2);
+    } else {
+      alert('Write Again, please.');
+    } 
+  });
+  return alert(strDecipher);
+}  
+decipher(phrase);
