@@ -4,26 +4,28 @@ let phraseArr = phrase.split('');
 
 const cipher = word => {
   let strCipher = '' ; 
+  // debugger
   // En lugar de for se usará filter para recorrer la frase palabra por palabra
   let positionPhraseLetter = phraseArr.filter((position) => {
     let positionOfLetter = phraseArr.indexOf(position);
     // regresa el codigo en número ascii
     let letter = word.charCodeAt(positionOfLetter);
-    if (Number.isNaN(parseInt(word)) && 65 <= letter && letter <= 90 && word !== '') {
-      // using the formula.   
+    // para mayúsculas
+    if (Number.isNaN(parseInt(word)) && letter >= 65  && letter <= 90 && word !== '') {
       let num = (letter - 65 + 33) % 26 + 65;
-      // num into string
-      strCipher = + String.fromCharCode(num);
-      // if 'word' is lowercase...
-    } else if (Number.isNaN(parseInt(word)) && 97 <= letter && letter <= 122 && word !== '') {                           
-      // using the formula.  
+      console.log(num);
+      strCipher += String.fromCharCode(num);
+      console.log(strCipher);
+      // para minúsculas
+    } else if (Number.isNaN(parseInt(word)) && letter >= 97 && letter <= 122 && word !== '') {                           
+      // usando fórmula  
       let num2 = (letter - 97 + 33) % 26 + 97;
-      // num into string
-      strCipher = strCipher + String.fromCharCode(num2);
+      // num a string
+      strCipher += String.fromCharCode(num2);
     } else {
       alert('Write Again, please.');
     } 
-    return alert(strCipher);
+    return alert(`Your cipher number is ${strCipher}`);
   });
 }  
 cipher(phrase);
@@ -40,14 +42,14 @@ const decipher = word => {
       // añadir la formula y almaceno en num   
       let num = (letter - 65 + 26) % 26 + 65;
      
-      strDecipher = strDecipher + String.fromCharCode(num);
+      strDecipher += String.fromCharCode(num);
     } else if (Number.isNaN(parseInt(word)) && 97 <= letter && letter <= 122 && word !== '') {      
       let num2 = (letter - 97 + 26) % 26 + 97;
-      strDecipher = strDecipher + String.fromCharCode(num2);
+      strDecipher += String.fromCharCode(num2);
     } else {
       alert('Write Again, please.');
     } 
   });
-  return alert(strDecipher);
+  return alert(`Your decipher number is ${strDecipher}`);
 }  
 decipher(phrase);
